@@ -10,6 +10,7 @@ import (
 
 func HandleHello(w http.ResponseWriter, r *http.Request) {
 	middleware.EnsureValidToken()(http.HandlerFunc((func(innerW http.ResponseWriter, innerR *http.Request) {
+		fmt.Println("Inside the edge function")
 		helloResponse(w, r)
 	})))
 }
